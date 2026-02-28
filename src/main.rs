@@ -23,8 +23,7 @@ impl Deck {
             }
         }
 
-        let deck = Deck { cards };
-        return deck;
+        Deck { cards }
     }
 }
 
@@ -32,4 +31,3 @@ fn main() {
     let deck = Deck::new();
     println!("Heres your deck: {:#?}", deck.cards);
 }
- 
