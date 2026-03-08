@@ -46,6 +46,14 @@ impl Catalog {
     fn add(&mut self, media: Media) {
         self.items.push(media)
     }
+
+    fn get_by_index(&self, index: usize) -> Option<&Media> {
+        if self.items.len() > index {
+            Some(&self.items[index])
+        } else {
+            None
+        }
+    }
 }
 
 fn print_media(media: Media) {
@@ -71,10 +79,6 @@ fn main() {
 
     let placeholder = Media::Placeholder;
 
-    println!("{}", audiobook.description());
-    println!("{}", good_movie.description());
-    println!("{}", bad_book.description());
-
     let mut catalog = Catalog::new();
 
     catalog.add(audiobook);
@@ -83,12 +87,16 @@ fn main() {
     catalog.add(podcast);
     catalog.add(placeholder);
 
-    match catalog.items.get(100) {
+    // let item = catalog.get_by_index(40);
+
+    // println!("{:#?}", item)
+
+    match catalog.get_by_index(0) {
         Some(value) => {
             println!("Item: {:#?}", value);
         }
         None => {
-            println!("Nothing at this index");
+            println!("No value here");
         }
     }
 }
