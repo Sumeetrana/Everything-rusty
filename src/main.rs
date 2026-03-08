@@ -56,10 +56,6 @@ impl Catalog {
     }
 }
 
-fn print_media(media: Media) {
-    println!("{:#?}", media);
-}
-
 fn main() {
     let audiobook = Media::AudioBook {
         title: String::from("John"),
@@ -87,16 +83,9 @@ fn main() {
     catalog.add(podcast);
     catalog.add(placeholder);
 
-    // let item = catalog.get_by_index(40);
+    let item = catalog.get_by_index(0);
 
-    // println!("{:#?}", item)
+    println!("{:#?}", item.unwrap());
 
-    match catalog.get_by_index(0) {
-        Some(value) => {
-            println!("Item: {:#?}", value);
-        }
-        None => {
-            println!("No value here");
-        }
-    }
+    println!("{:#?}", item.expect("Expected value here"));
 }
