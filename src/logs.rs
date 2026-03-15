@@ -7,7 +7,7 @@ fn extract_errors(text: &str) -> Vec<String> {
 
     for line in split_text {
         if line.starts_with("ERROR") {
-            results.push(line.to_string());
+            results.push(line.to_string()); 
         }
     }
 
