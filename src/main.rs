@@ -5,7 +5,7 @@ struct Rectangle {
 }
 
 impl Rectangle {
-    fn area(self) -> u16 {
+    fn area(&self) -> u16 {
         self.breadth * self.length
     }
 }
@@ -17,4 +17,5 @@ fn main() {
     };
 
     println!("Area: {}", rec.area());
+    println!("Area2: {}", rec.area());
 }
