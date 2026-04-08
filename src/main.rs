@@ -14,4 +14,9 @@ fn main() {
     increment();
     increment();
     increment();
+
+    let values = vec![10, 20, 30, 45, 75, 100];
+    let even_vector: Vec<i32> = values.into_iter().filter(|x| x % 2 == 0).collect();
+
+    println!("{:?}", even_vector);
 }
