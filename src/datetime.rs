@@ -20,3 +20,7 @@ pub fn test_stdtime() {
 
     println!("{}", now.elapsed().as_millis());
 }
+
+pub fn test_chronos() {
+    
+}
