@@ -13,4 +13,10 @@ pub fn test_stdtime() {
     let dur3 = dur1.checked_sub(dur2);
 
     println!("{:?}", dur3.unwrap_or_default());
+
+    let now = Instant::now();
+
+    std::thread::sleep(Duration::from_millis(200));
+
+    println!("{}", now.elapsed().as_millis());
 }
