@@ -3,6 +3,8 @@ use std::{
     time::{Duration, Instant},
 };
 
+extern crate chrono;
+
 pub fn test_stdtime() {
     let dur1 = Duration::from_secs(15);
     println!("{}", dur1.as_millis());
@@ -22,5 +24,6 @@ pub fn test_stdtime() {
 }
 
 pub fn test_chronos() {
-    
+    let utc_now = chrono::Utc::now();
+    println!("{}", utc_now.format("%Y %b %d"));
 }
