@@ -26,4 +26,7 @@ pub fn test_stdtime() {
 pub fn test_chronos() {
     let utc_now = chrono::Utc::now();
     println!("{}", utc_now.format("%Y %b %d"));
+
+    let local_now = chrono::Local::now();
+    println!("{}", local_now.format("%Z %H %Y %b %d"));
 }
