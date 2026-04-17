@@ -3,11 +3,11 @@ use std::thread::spawn;
 pub fn test_thread() {
     let mut x: u128 = 0u128;
 
-    for i in 1..500_000_000 {
+    for i in 1..500 {
         x += i;
     }
 
-    println!("{}", x);
+    println!("Main thread is finished...let's go and check the worker threads");
 }
 
 pub fn spawn_thread() {
@@ -21,11 +21,14 @@ pub fn spawn_thread() {
         println!("{}", x);
     };
 
-    test_thread();
-
     let handle = spawn(thread_fn);
     let handle2 = spawn(thread_fn);
 
-    handle.join();
-    handle2.join();
+    loop {
+        test_thread();
+        if handle.is_finished() && handle2.is_finished() {
+            println!("All the workers are done, let's go get out of here");
+            break;
+        }
+    }
 }
